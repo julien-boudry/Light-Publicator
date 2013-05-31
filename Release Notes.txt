@@ -1,11 +1,15 @@
-﻿--- 2013-31-05 --- 0.2 FINAL
+﻿﻿--- 2013-31-05 --- 0.2 FINAL
 
 	- xxx
 
---- 2012-06-02 --- 0.1 RC2
+﻿--- 2013-31-05 --- 0.1 FINAL
+
+	- Correction du fichier realeases Notes
+
+--- 2013-06-02 --- 0.1 RC2
 
 	- Correction for <header> element / Nouvelle gestion de l'élemenet HTML 5 <header>, il y a désormais un site header, et des headers sur les articles (titre, date, auteur).
 
---- 2012-04-02 --- 0.1 RC1
+--- 2013-04-02 --- 0.1 RC1
 
 	- First release / Première parution.
