@@ -1,0 +1,139 @@
+﻿body{
+margin:0px 0px 0px 0px ;
+background-color:#FCFEFF;
+}
+
+header {
+position:fixed;
+top:0px;
+text-align:center;
+padding-bottom:1%;
+margin-bottom:0px;
+border-bottom:5px solid;
+width:100%;
+height:8%;
+min-height:70px;
+background-color:black;
+font-weight:bold;
+color:orange;
+}
+
+header a:link {color:white; text-decoration:none;}
+header a:visited {color:white; text-decoration:none;}  /* visited link */
+header a:hover {color:white; text-decoration:underline;}  /* mouse over link */
+header a:active {color:white; text-decoration:none;}  /* selected link */ 
+
+.content{
+margin:0px ;
+margin-top:8%;
+padding-bottom:150px;
+}
+
+.content a:link {color:orange; text-decoration:none;}
+.content a:visited {color:orange; text-decoration:none;}  /* visited link */
+.content a:hover {color:orange; text-decoration:underline;}  /* mouse over link */
+.content a:active {color:orange; text-decoration:none;}  /* selected link */ 
+
+
+footer{
+position:fixed;
+bottom:0px;
+margin-top:0px;
+width:100%;
+height:100px;
+background-color:white;
+border-top:1px solid;
+height:50px;
+background-color:black;
+color:white;
+text-align:center;
+}
+footer a:link {color:orange; text-decoration:none;}
+footer a:visited {color:orange; text-decoration:none;}  /* visited link */
+footer a:hover {color:orange; text-decoration:underline;}  /* mouse over link */
+footer a:active {color:orange; text-decoration:none;}  /* selected link */ 
+
+
+
+h1 {
+margin-top:0px;
+}
+
+.nav_element {
+display:inline-block;
+margin-left:5%;
+}
+
+#nav1 {
+margin-left:0px;
+}
+
+
+
+#admin_connect {
+text-align:center;
+width:30%;
+margin:auto;
+margin-top:10%;
+}
+
+#recap{
+text-align:center;
+}
+
+#message {
+width: 25%;
+
+margin:auto;
+margin-top:5%;
+margin-bottom:5%;
+
+border:1px solid ;
+
+font-weight:bold;
+text-align:center;
+}
+
+#members{
+text-align:center;
+}
+
+.recap_tables_box{
+width:32%;
+display:inline-block;
+}
+
+#admin_table_2 {
+border-left:1px solid;
+}
+
+#admin_table_3 {
+border-left:1px solid;
+}
+
+table{
+margin:auto;
+}
+
+.bold{
+font-weight:bold;
+}
+
+.error{
+color:red;
+font-weight:bold;
+}
+
+.formulaire{
+margin:auto;
+width:300px;
+}
+
+form{
+text-align:center;
+}
+
+#activate_inscription {
+margin-top:5%;
+font-weight:bold;
+}

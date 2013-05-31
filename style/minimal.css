@@ -1,0 +1,198 @@
+﻿/* LE STYLE MINIMAL V.0.1 POUR LIGHT-PUBLICATOR 0.1*/
+
+#wrapper {
+margin:auto;
+width:70%;
+min-width:600px;
+border:1px solid;
+}
+
+#top {
+height:10%;
+min-height:100px;
+}
+
+#site_header {
+border-bottom:1px solid;
+}
+
+#content{
+clear:both;
+}
+
+nav {
+height:30%;
+border-bottom:1px solid;
+margin-top:0px;
+}
+
+.blocs-nav {
+float:right;
+text-align:right;
+margin:2%;
+margin-top:0px;
+}
+
+.blocs-nav-users {
+float:left;
+}
+
+#fonctions_users_nav {
+font-style:italic;
+}
+
+#bloc-nav-home{
+margin-right:30%;
+}
+
+
+footer {
+clear:both;
+border-top:1px solid;
+height:10px;
+min-height:100px;
+}
+
+article {
+border:1px solid ;
+margin: 5% auto 5% auto ;
+width:90%;
+}
+
+#connect {
+text-align:center;
+}
+
+#choix_page {
+width:10%;
+margin:auto;
+margin-bottom:1%;
+border:1px solid;
+}
+
+.id_fail {
+font-weight:bold;
+color:red ;
+}
+
+.error {
+font-weight:bold;
+color:red ;
+}
+
+#message {
+width: 25%;
+
+margin:auto;
+margin-top:5%;
+margin-bottom:5%;
+
+border:1px solid ;
+
+font-weight:bold;
+text-align:center;
+}
+
+#menu_ucp {
+float:left;
+
+background-color:yellow;
+width:25%;
+
+margin: 5% 0px 5% 0px ;
+padding-left:2% ;
+
+border-right:1px solid;
+}
+
+#edit_title{
+width:700px;
+margin:auto;
+}
+
+#edit_article {
+width: 80%;
+
+margin:auto;
+margin-top:5%;
+margin-bottom:5%;
+
+text-align:center;
+}
+
+#content_ucp {
+float:right;
+width:70%;
+}
+
+.ucp_menu_select {
+font-weight:bold ;
+}
+
+.index_article_edit_detail{
+float:right;
+padding-left:2%;
+border-top:1px solid;
+}
+
+.index_article_edit_detail_edit {
+border-left:1px solid;
+}
+
+.index_article_edit_deail_delete {
+}
+
+.index_article_edit {
+width:100%;
+float:right;
+}
+
+
+.index_article_comments {
+float:left;
+padding-right:1%;
+border-right:1px solid;
+}
+
+#comments {
+width:80%;
+margin:auto;
+}
+
+.comment_box {
+width:70%;
+border:1px solid;
+padding:5%;
+margin:auto;
+margin-bottom:3%;
+border-radius:10%;
+}
+
+.comment_infos {
+border-top:1px solid;
+}
+
+.comment_content {
+padding-bottom:5%;
+}
+
+.comment_infos {
+font-style:italic;
+}
+
+#post_comment{
+margin:auto;
+margin-top:3%;
+width: 60%;
+border-top:1px dashed;
+text-align:center;
+}
+
+#post_comment_title {
+text-align:center;
+}
+
+#admin_link {
+text-align:center;
+font-weight:bold;
+}
