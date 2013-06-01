@@ -475,8 +475,6 @@
 		$bdd = $GLOBALS['bdd'] ;
 		$bdd_tables = $GLOBALS['bdd_tables'] ;
 		
-		$password_entry = sha1($GLOBALS['security_key'].$user_password) ;
-
 		$password_query = $bdd->prepare('
 		UPDATE ' . $bdd_tables['users'] . ' SET
 		`password` = :password
@@ -484,11 +482,12 @@
 		 ;') ;
 		 
 		$password_query->execute(
-		array 	(	'password' => $password_entry,
+		array 	(	'password' => password($user_password),
 					'userid' => $user_id
 				)
 				
 		) ;
+		
 	}
 
 	
@@ -571,7 +570,7 @@
 			// Si besoin, on modifie le mot de passe
 			IF ( empty($_POST['password']) == FALSE )
 			{
-				entry_password($_SESSION['user_id'], $_POST['password']) ;
+				entry_password($userid, $_POST['password']) ;
 				
 			}
 			

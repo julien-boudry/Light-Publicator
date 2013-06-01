@@ -5,7 +5,7 @@
 
 // Informations sur le logiciel
 
-$Lpublicator_version = '0.1.0 RC2' ;
+$Lpublicator_version = '0.2.0 RC1' ;
 
 // On rempli ici les paramètres d'accès à la BDD
 
@@ -49,11 +49,14 @@ $bdd_tables = array (
 	
 	$security_key = '4f8c42f42a87c42c' ;
 	
+	$bcrypt_cost = NULL ; // NULL = Définit par votre version PHP. Mise à jour automatique à chaque connexion des utilisateurs, vous pouvez le modifier à tout moment.
+	
 // SESSION
 
 	// Clé unique en cas d'installation de plusieurs Light-Publicator sur un même domaine.
 	
 	$cle_session = '73cc45d740f6153f' ;
+	
 
 
 ?>

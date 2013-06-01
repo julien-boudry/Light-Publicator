@@ -321,24 +321,37 @@
 			$bdd_tables = $GLOBALS['bdd_tables'] ;
 		
 		
-			$identification_check_query = $bdd->prepare('SELECT `id` FROM ' . $bdd_tables['users'] . '  WHERE (`pseudo` = :identifiant OR `email` = :identifiant) AND `password` = :pass ;') ;
+			$identification_check_query = $bdd->prepare('SELECT `id`, `password` FROM ' . $bdd_tables['users'] . '  WHERE (`pseudo` = :identifiant OR `email` = :identifiant) ;') ;
 			$identification_check_query->execute(array(
-														'identifiant' => $user_identifiant_request,
-														'pass' => sha1($GLOBALS['security_key'].$user_pass_request)
+														'identifiant' => $user_identifiant_request
 														)) ;
 														
-			$identification_check_array = $identification_check_query->fetch(PDO::FETCH_NUM) ;
+			$identification_check_array = $identification_check_query->fetch(PDO::FETCH_ASSOC) ;
 			
-			IF ( is_null($identification_check_array['0']) )
+			IF ( is_null($identification_check_array) )
 			{
-				$user_successfull_id = FALSE ;
+				return FALSE ;
 			}
 			ELSE
 			{
-				$user_successfull_id = $identification_check_array['0'] ;
+				$user_successfull_id = $identification_check_array['id'] ;
 			}
-
+			
+			$password_check = password($user_pass_request, $identification_check_array['password']) ;
+			IF ( $password_check == 2 )
+			{
+				entry_password ($user_successfull_id, $user_pass_request) ;
+				$password_check = 1 ;
+			}
+			
+			IF ( !$password_check )
+			{
+				return FALSE ;
+			}
+			ELSEIF ( $password_check == 1 )
+			{
 			return $user_successfull_id ;
+			}
 		}
 		
 		
@@ -367,5 +380,50 @@
 			}
 
 		}
+		
+	// Hash Password
+	function password ($password, $hash = 'need_hash')
+	{
+	// PHP Inférieur à 5.5.0
+	IF (version_compare(PHP_VERSION, '5.5.0') < 0)
+	{
+		IF ( !isset($GLOBALS['admin_mode']) )
+		{
+			include_once 'functions/password_old_php_compatibility.php' ;
+		}
+		ELSEIF ( $GLOBALS['admin_mode'] ) // Correction du chemin lors de la verif MDP admin
+		{
+			include_once '../functions/password_old_php_compatibility.php' ;
+		}
+	}
+	
+		$cost = $GLOBALS['bcrypt_cost'] ;
+	
+		$password = $GLOBALS['security_key'].$password ;
+		
+		// Generation de Hash
+		IF ( $hash == 'need_hash' )
+		{
+			return password_hash($password, PASSWORD_DEFAULT, array( 'cost' => $cost ) ) ;			
+		}
+		
+		// On continue ... on vérifie le mot de passe
+		$verify = password_verify($password, $hash) ;
+		
+		IF ( !$verify ) { return FALSE ; }
+		
+		
+		// Faut-il re-hash ?
+		IF ( password_needs_rehash($hash, PASSWORD_DEFAULT, array( 'cost' => $cost ) ) && $verify )
+		{
+			return 2 ;
+		}
+		ELSE
+		{
+			return 1 ;
+		}
+		// 1 = Ok / 2 = Ok + rehash
+		
+	}
 
 ?>

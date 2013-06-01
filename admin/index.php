@@ -41,6 +41,9 @@
 		
 		$site_config = site_config() ;
 		
+		// Activationj du mode admmin
+		$admin_mode = TRUE ;
+		
 		
 		// ON S'INFORME sur l'utisateur et le cas échéant ... on bloque le script.
 		
@@ -92,7 +95,7 @@
 	// Aiguillage des affichages
 	
 	
-		// par défault, on affiche le récapitulatif
+		// Par défault, on affiche le récapitulatif
 		
 			IF ( isset($_SESSION['admin_connect']) == TRUE AND isset($_GET['module']) == FALSE )
 			{
