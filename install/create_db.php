@@ -6,10 +6,7 @@
 * @license http://www.gnu.org/licenses/lgpl.txt GNU Lesser General Public License / Licence publique générale limitée GNU
 *
 */ 
-?>
 
-
-<?php
 
 $db_structure = "
 

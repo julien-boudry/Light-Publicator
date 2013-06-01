@@ -6,9 +6,7 @@
 * @license http://www.gnu.org/licenses/lgpl.txt GNU Lesser General Public License / Licence publique générale limitée GNU
 *
 */ 
-?>
 
-<?php
 
 // ON VA GENERER DES LISTES DE CHOIX POUR L'INSCRIPTION & LA PREFERENCES PERSO
 	
@@ -636,12 +634,5 @@
 					
 				}
 				
-			}	
-	
-	
-	
-	
-	
-	
-
+			}
 ?>

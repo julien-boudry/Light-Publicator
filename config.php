@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 // Informations sur le logiciel
@@ -56,7 +53,5 @@ $bdd_tables = array (
 	// Clé unique en cas d'installation de plusieurs Light-Publicator sur un même domaine.
 	
 	$cle_session = '73cc45d740f6153f' ;
-	
-
 
 ?>

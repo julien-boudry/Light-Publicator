@@ -6,10 +6,7 @@
 * @license http://www.gnu.org/licenses/lgpl.txt GNU Lesser General Public License / Licence publique générale limitée GNU
 *
 */ 
-?>
 
-
-<?php
 
 // Génération de la liste des langues pré-installées
 function generate_langs_list ()
@@ -246,8 +243,5 @@ catch (Exception \$e)
 		
 		
 	}
-
-
-
 
 ?>
