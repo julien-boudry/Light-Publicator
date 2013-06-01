@@ -172,55 +172,28 @@
 			
 				// CHECK PSEUDO
 				
-			
-				IF ( $edit == FALSE )
+				IF ( isset($_POST['pseudo']) AND
+					strlen($_POST['pseudo']) <= 20 AND
+					strlen($_POST['pseudo']) >= 4 AND
+					ctype_alnum($_POST['pseudo']) AND
+					( entry_exist($bdd_tables['users'], 'pseudo', $_POST['pseudo']) == FALSE || ( $edit == TRUE && $_POST['pseudo'] == $memberinfos['pseudo'] ) )
+					)						
+				{}
+				ELSE
 				{
-					IF ( isset($_POST['pseudo']) AND
-						strlen($_POST['pseudo']) <= 20 AND
-						strlen($_POST['pseudo']) >= 4 AND
-						ctype_alnum($_POST['pseudo']) AND
-						entry_exist($bdd_tables['users'], 'pseudo', $_POST['pseudo']) == FALSE			
-						)						
-					{}
-					ELSE
-					{
-						$error = TRUE ;
-						
-						
-							IF ( entry_exist($bdd_tables['users'], 'pseudo', $_POST['pseudo']) == TRUE )
-							{
-								$profilage_fails_list['pseudo'] = $GLOBALS['lang_profilage_error_pseudo_use'] ;
-							}
-							ELSE
-							{
-								$profilage_fails_list['pseudo'] = $GLOBALS['lang_profilage_error_pseudo'] ;
-							}
-					}
+					$error = TRUE ;
+					
+					
+						IF ( entry_exist($bdd_tables['users'], 'pseudo', $_POST['pseudo']) == TRUE )
+						{
+							$profilage_fails_list['pseudo'] = $GLOBALS['lang_profilage_error_pseudo_use'] ;
+						}
+						ELSE
+						{
+							$profilage_fails_list['pseudo'] = $GLOBALS['lang_profilage_error_pseudo'] ;
+						}
 				}
-				ELSEIF ( $edit == TRUE )
-				{
-					IF ( isset($_POST['pseudo']) AND
-						strlen($_POST['pseudo']) <= 20 AND
-						strlen($_POST['pseudo']) >= 4 AND
-						ctype_alnum($_POST['pseudo']) AND
-						( entry_exist($bdd_tables['users'], 'pseudo', $_POST['pseudo']) == FALSE OR $_POST['pseudo'] == $memberinfos['pseudo'] )			
-						)						
-					{}
-					ELSE
-					{
-						$error = TRUE ;
-						
-						
-							IF ( entry_exist($bdd_tables['users'], 'pseudo', $_POST['pseudo']) == TRUE )
-							{
-								$profilage_fails_list['pseudo'] = $GLOBALS['lang_profilage_error_pseudo_use'] ;
-							}
-							ELSE
-							{
-								$profilage_fails_list['pseudo'] = $GLOBALS['lang_profilage_error_pseudo'] ;
-							}
-					}
-				}
+
 				
 				// CHECK PRENOM
 				IF ( empty($_POST['prenom']) == TRUE OR
@@ -441,8 +414,8 @@
 			$bdd_tables = $GLOBALS['bdd_tables'] ;
 			
 			$inscription_query = $bdd->prepare('
-			INSERT INTO ' . $bdd_tables['users'] . ' (`pseudo`,`prenom`,`nom`,`genre`,`email`,`id_style`,`id_language`)
-			VALUES (:pseudo,:prenom,:nom,:genre,:email,:style,:lang)
+			INSERT INTO ' . $bdd_tables['users'] . ' (`pseudo`,`prenom`,`nom`,`genre`,`email`,`id_style`,`id_language`, `password`)
+			VALUES (:pseudo,:prenom,:nom,:genre,:email,:style,:lang,:password)
 			 ;') ;
 			 
 			$inscription_query->execute(
@@ -452,18 +425,14 @@
 						'genre' => $_POST['genre'],
 						'email' => $_POST['email'],
 						'style' => $_POST['style'],
-						'lang' => $_POST['lang']
+						'lang' => $_POST['lang'],
+						'password'	=> password($_POST['password'])
 					)
 					
 			) ;
 			
-			// On lui donne son mot de passe
-			entry_password($_POST['pseudo'], $_POST['password']) ;
-			
 			// Et on connecte
 			identification_ask($_POST['pseudo'], $_POST['password']) ;
-			
-			
 			
 		}
 		
@@ -476,7 +445,7 @@
 		$password_query = $bdd->prepare('
 		UPDATE ' . $bdd_tables['users'] . ' SET
 		`password` = :password
-		WHERE ( `id` = :userid ) OR ( `pseudo` = :userid )
+		WHERE ( `id` = :userid )
 		 ;') ;
 		 
 		$password_query->execute(
