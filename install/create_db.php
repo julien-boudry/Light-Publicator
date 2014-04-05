@@ -239,27 +239,28 @@ INSERT INTO `prefixe_variable_comments` (`id`, `id_billet`, `id_auteur`, `date`,
 --
 
 INSERT INTO `prefixe_variable_config` (`parametre`, `valeur`) VALUES
-('copyright', '<a href=\"http://www.light-publicator.org\" target=\"blank\"> Light Publicator</a> est un logiciel libre publiè sous licence LGPL'),
+('copyright', '<a href=\"https://github.com/julien-boudry/Light-Publicator\" target=\"blank\"> Light Publicator</a> est un logiciel libre publiè sous licence LGPL'),
 ('default_language', '1'),
 ('default_style', '1'),
-('index_nbr_articles', '5'),
+('index_nbr_articles', '8'),
 ('inscription', '1'),
-('mots_cles', 'light, publicator, beta'),
-('site_title', 'LIGHT PUBLICATOR 0.1 RC2');
+('mots_cles', 'light, publicator'),
+('site_title', 'LIGHT PUBLICATOR 0.2');
 
 --
 -- Contenu de la table `prefixe_variable_languages`
 --
 
 INSERT INTO `prefixe_variable_languages` (`id`, `nom`) VALUES
-(1, 'fr');
+(1, 'fr'),
+(2, 'en');
 
 --
 -- Contenu de la table `prefixe_variable_styles`
 --
 
 INSERT INTO `prefixe_variable_styles` (`id`, `nom`, `fichier_css`) VALUES
-(1, 'Minimal', 'minimal.css'),
+(1, 'Diet Honey', 'diet-honey.css'),
 (2, 'no-css', 'no-css.css');
 
 --
@@ -267,11 +268,11 @@ INSERT INTO `prefixe_variable_styles` (`id`, `nom`, `fichier_css`) VALUES
 --
 
 INSERT INTO `prefixe_variable_users` (`id`, `pseudo`, `prenom`, `nom`, `genre`, `email`, `password`, `level`, `date_inscription`, `id_style`, `id_language`) VALUES
-(1, 'admin', '', '', 'unknow', 'test@light-publicator.org', '9d6620ae8994642fb66d609d45ed81b61b8e04e2', 3, '2013-01-24 08:28:51', 1, 1),
-(2, 'test1', 'test', 'test', 'male', 'coucou@coucou.fr', '9d6620ae8994642fb66d609d45ed81b61b8e04e2', 2, '2013-02-03 20:32:29', 1, 1),
-(3, 'test2', 'test', 'test', 'male', 'coucou2@coucou.fr', '9d6620ae8994642fb66d609d45ed81b61b8e04e2', 2, '2013-02-03 20:32:29', 1, 1),
-(4, 'test3', 'test', 'test', 'unknow', 'coucou3@coucou.fr', '9d6620ae8994642fb66d609d45ed81b61b8e04e2', 2, '2013-02-03 20:32:29', 1, 1),
-(5, 'test4', 'test', 'test', 'male', 'coucou4@coucou.fr', '9d6620ae8994642fb66d609d45ed81b61b8e04e2', 1, '2013-02-03 20:32:29', 1, 1);
+(1, 'admin', '', '', 'unknow', 'test@light-publicator.org', '\$2y\$10\$ZS/ZjIZ.F7qn4KPQLkZ5ROKZt3YOzOfl1UN4Ngjp16lDYuQ6pa8Rm', 3, '2013-01-24 08:28:51', 1, 1),
+(2, 'test1', 'test', 'test', 'male', 'coucou@coucou.fr', '\$2y\$10\$ZS/ZjIZ.F7qn4KPQLkZ5ROKZt3YOzOfl1UN4Ngjp16lDYuQ6pa8Rm', 2, '2013-02-03 20:32:29', 1, 1),
+(3, 'test2', 'test', 'test', 'male', 'coucou2@coucou.fr', '\$2y\$10\$ZS/ZjIZ.F7qn4KPQLkZ5ROKZt3YOzOfl1UN4Ngjp16lDYuQ6pa8Rm', 2, '2013-02-03 20:32:29', 1, 1),
+(4, 'test3', 'test', 'test', 'unknow', 'coucou3@coucou.fr', '\$2y\$10\$ZS/ZjIZ.F7qn4KPQLkZ5ROKZt3YOzOfl1UN4Ngjp16lDYuQ6pa8Rm', 2, '2013-02-03 20:32:29', 1, 1),
+(5, 'test4', 'test', 'test', 'male', 'coucou4@coucou.fr', '\$2y\$10\$ZS/ZjIZ.F7qn4KPQLkZ5ROKZt3YOzOfl1UN4Ngjp16lDYuQ6pa8Rm', 1, '2013-02-03 20:32:29', 1, 1);
 
 
 
