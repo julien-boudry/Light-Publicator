@@ -1,6 +1,7 @@
-﻿﻿--- 2013-31-05 --- 0.2 FINAL
+﻿﻿--- 2014-05-04 --- 0.2 FINAL
 
-	- xxx
+	- Use the new PHP 5.5 password API
+	- Some fix and optimization
 
 ﻿--- 2013-31-05 --- 0.1 FINAL
 
