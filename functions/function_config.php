@@ -395,7 +395,14 @@
 		}
 	}
 	
-		$cost = $GLOBALS['bcrypt_cost'] ;
+		if ($GLOBALS['bcrypt_cost'] !== null)
+		{
+			$cost = $GLOBALS['bcrypt_cost'] ;
+		}
+		else
+		{
+			$cost = 11 ;
+		}
 	
 		$password = $GLOBALS['security_key'].$password ;
 		
