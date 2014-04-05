@@ -183,7 +183,7 @@ function generate_langs_list ()
 
 // Informations sur le logiciel
 
-\$Lpublicator_version = '0.1.0 RC2' ;
+\$Lpublicator_version = '0.2.0' ;
 
 // On rempli ici les paramètres d'accès à la BDD
 
@@ -226,6 +226,9 @@ catch (Exception \$e)
 	//Clé de hashage - 20 caractères max | NE JAMAIS MODIFIER après installation (réinitialise tous les mots de passe)
 	
 	\$security_key = '".$security."' ;
+	
+	\$bcrypt_cost = NULL ; // NULL = Définit par votre version PHP. Mise à jour automatique à chaque connexion des utilisateurs, vous pouvez le modifier à tout moment.
+
 	
 // SESSION
 

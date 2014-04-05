@@ -385,11 +385,11 @@
 	// PHP Inférieur à 5.5.0
 	IF (version_compare(PHP_VERSION, '5.5.0') < 0)
 	{
-		IF ( !isset($GLOBALS['admin_mode']) )
+		IF ( file_exists('functions/password_old_php_compatibility.php') )
 		{
 			include_once 'functions/password_old_php_compatibility.php' ;
 		}
-		ELSEIF ( $GLOBALS['admin_mode'] ) // Correction du chemin lors de la verif MDP admin
+		ELSE // Correction du chemin lors de la verif MDP admin + Install
 		{
 			include_once '../functions/password_old_php_compatibility.php' ;
 		}

@@ -41,58 +41,6 @@
 					echo '<option value="' . $element['id'] . '" '.$selected.' >' . $element['nom'] . '</option>' ;
 				}
 		}
-
-		
-		/* FONCTIONS OBSELETTES
-			// Si parametre FALSE, return le numero du style par défault.
-			 // Si parametre TRUE, il va en plus du html pour générer l'option de tête.
-				// ETAT 100%
-				function tell_default_style ($talk)
-				{
-					$bdd = $GLOBALS['bdd'] ;
-					$bdd_tables = $GLOBALS['bdd_tables'] ;
-					
-					
-					$style_default_query = $bdd->query('
-					SELECT `id`, `nom` FROM ' . $bdd_tables['styles'] . '
-					LEFT JOIN ' . $bdd_tables['config'] . ' ON ' . $bdd_tables['config'] . '.`valeur_int` = ' . $bdd_tables['styles'] . '.`id`
-					WHERE ' . $bdd_tables['config'] . '.`parametre` = \'default_style\' AND ' . $bdd_tables['config'] . '.`valeur_int` =   ' . $bdd_tables['styles'] . '.`id`
-					') ;
-					
-					$style_default_array = $style_default_query->fetch(PDO::FETCH_ASSOC) ;
-					
-					
-					IF ( isset($talk) AND $talk == TRUE )
-					{
-						echo '<option value="' . $style_default_array['id'] . '" >' . $style_default_array['nom'] . ' (' . $GLOBALS['lang_default'] . ')</option>' ;
-						
-						return $style_default_array['id'] ;
-					}
-					ELSE
-					{
-						return $style_default_array['id'] ;
-					}
-				}
-				
-
-			// On calcule la liste restante des styles, par ordre alphabétique.
-				// ETAT 100%
-				function list_styles_without_default ($default_style)
-				{
-					$bdd = $GLOBALS['bdd'] ;
-					$bdd_tables = $GLOBALS['bdd_tables'] ;
-				
-					$list_style_query = $bdd->query(' SELECT `id`, `nom` FROM ' . $bdd_tables['styles'] . ' WHERE `id` <> ' . $default_style . ' ORDER BY `nom` ASC
-					;') ;
-				
-					while ( $list_style_array = $list_style_query->fetch(PDO::FETCH_ASSOC) )
-					{
-						echo '<option value="' . $list_style_array['id'] . '" >' . $list_style_array['nom'] . '</option>' ;
-					}
-					
-					
-				}
-		*/
 		
 			
 	// Génère les listes des langues disponibles.
@@ -135,28 +83,6 @@
 			{			
 				return $GLOBALS['site_config']['default_language'] ;
 			}
-			
-
-	/* CODE OBSSELET
-
-		// On calcule la liste restante des langues, par ordre alphabétique.
-				// ETAT 100%
-				function list_langs_without_default ($default_lang)
-				{
-					$bdd = $GLOBALS['bdd'] ;
-					$bdd_tables = $GLOBALS['bdd_tables'] ;
-				
-					$list_lang_query = $bdd->query(' SELECT `id`, `nom` FROM ' . $bdd_tables['languages'] . ' WHERE `id` <> ' . $default_lang . ' ORDER BY `nom` ASC
-					;') ;
-				
-					while ( $list_lang_array = $list_lang_query->fetch(PDO::FETCH_ASSOC) )
-					{
-						echo '<option value="' . $list_lang_array['id'] . '" >' . $list_lang_array['nom'] . '</option>' ;
-					}
-					
-					
-				} 
-	*/
 			
 			
 

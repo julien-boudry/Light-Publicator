@@ -11,7 +11,7 @@
 	// -------------------------------- MISE EN PLACE DES FONDAMENTAUX --------------------------------------------------
 		
 		
-		// Chargement des variables de connexion à la BDD, se sécrité et de la clé de Session
+		// Chargement des variables de connexion à la BDD, sécurité et de la clé de Session
 		include("../config.php") ;	
 		
 				// Si tu ne reviens pas installer correctement ce CMS, j'arrête tous.
@@ -54,8 +54,7 @@
 				ELSE
 				{ exit() ; }
 			}
-			ELSE { exit() ; }
-			
+			ELSE { exit() ; }			
 		
 
 

@@ -11,6 +11,7 @@
 
 <?php
 
+
 // Mise en place de la machinerie 0
 
 	// Démarrage du système spécifique de session (distinct de celui du site fonctionnel)
@@ -19,6 +20,12 @@
 	
 	// Chargement des fonctions
 	include('function_install.php') ;
+	include("../functions/function_config.php") ;
+	include("../functions/function_interface.php") ;
+	include("../functions/function_view.php") ;
+	include("../functions/function_ucp.php") ;
+	include("../functions/function_post.php") ;
+	include("../functions/function_admin.php") ;
 	
 	// Chargement du fichier de langue & Inscription de la langue dans la SESSION
 	IF ( isset($_GET['lang']) == FALSE AND isset($_SESSION['lang']) == FALSE )	{ include('language/fr.php') ; }
@@ -94,7 +101,6 @@
 		IF ( isset($_POST['etape_candidate-4']) )
 		{
 			include('../config.php') ;
-			include('../functions/function_ucp.php') ;
 			
 			entry_password(1, $_POST['admin_password']) ;
 			
